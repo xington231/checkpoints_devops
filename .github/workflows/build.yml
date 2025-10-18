@@ -25,6 +25,7 @@ jobs:
         dotnet tool install --global dotnet-sonarscanner
         
     - name: Begin SonarCloud analysis
+      working-directory: calculator 
       run: |
         dotnet-sonarscanner begin /k:"xington231_checkpoints_devops" /o:"xington231" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.branch.name=${{ github.ref_name }}
         
@@ -37,6 +38,6 @@ jobs:
       run: dotnet build ConsoleApp60.sln --configuration Release --verbosity normal
         
     - name: End SonarCloud analysis
+      working-directory: calculator 
       run: |
         dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-
