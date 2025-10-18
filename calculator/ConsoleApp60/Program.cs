@@ -35,11 +35,11 @@ namespace Calculator
             }
             return x / y;
         }
-        public decimal Power()
+        public decimal Power(decimal x, decimal y)
         {
-            if (Y == 0) return 1;
-            if (X == 0 && Y > 0) return 0;
-            return (decimal)Math.Pow((double)X, (double)Y);
+            if (y == 0) return 1;
+            if (x == 0 && y > 0) return 0;
+            return (decimal)Math.Pow((double)x, (double)y);
         }
 
     }
@@ -48,6 +48,13 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
+            Calculator calculator = new Calculator(4,2);
+            Console.WriteLine(calculator.Power(4, 2));
+            Console.WriteLine(calculator.Add(4, 2) );
+            Console.WriteLine(calculator.Multiply(4, 2));
+            Console.WriteLine(calculator.Divide(4, 2));
+            Console.WriteLine(calculator.Subtract(4, 2));
+
         }
     }
 }

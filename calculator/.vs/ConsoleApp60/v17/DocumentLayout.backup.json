@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\degty\\source\\repos\\ConsoleApp60\\",
+  "WorkspaceRootPath": "E:\\Study\\devops\\calculator\\calculator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{472CB5DB-DDFF-434B-B9B9-0D6ECFE8DE7B}|ConsoleApp60\\ConsoleApp60.csproj|c:\\users\\degty\\source\\repos\\consoleapp60\\consoleapp60\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{472CB5DB-DDFF-434B-B9B9-0D6ECFE8DE7B}|ConsoleApp60\\ConsoleApp60.csproj|e:\\study\\devops\\calculator\\calculator\\consoleapp60\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{472CB5DB-DDFF-434B-B9B9-0D6ECFE8DE7B}|ConsoleApp60\\ConsoleApp60.csproj|solutionrelative:consoleapp60\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,11 +24,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\degty\\source\\repos\\ConsoleApp60\\ConsoleApp60\\Program.cs",
+              "DocumentMoniker": "E:\\Study\\devops\\calculator\\calculator\\ConsoleApp60\\Program.cs",
               "RelativeDocumentMoniker": "ConsoleApp60\\Program.cs",
-              "ToolTip": "C:\\Users\\degty\\source\\repos\\ConsoleApp60\\ConsoleApp60\\Program.cs",
-              "RelativeToolTip": "ConsoleApp60\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAcAAAAAAAAAA==",
+              "ToolTip": "E:\\Study\\devops\\calculator\\calculator\\ConsoleApp60\\Program.cs*",
+              "RelativeToolTip": "ConsoleApp60\\Program.cs*",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAwwDYAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-18T15:30:36.137Z",
               "EditorCaption": ""
