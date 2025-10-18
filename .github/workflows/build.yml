@@ -23,7 +23,7 @@ jobs:
         run: |
           build-wrapper-win-x86-64.exe --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} msbuild калькулятор/ConsoleApp60.sln /t:rebuild /nodeReuse:false
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v4
+      - uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
