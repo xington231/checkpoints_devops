@@ -29,11 +29,11 @@ jobs:
         dotnet-sonarscanner begin /k:"xington231_checkpoints_devops" /o:"xington231" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.branch.name=${{ github.ref_name }}
         
     - name: Restore dependencies
-      working-directory: calculator/calculator
+      working-directory: calculator\calculator
       run: dotnet restore
         
     - name: Build project with dotnet
-      working-directory: calculator/calculator 
+      working-directory: calculator\calculator 
       run: dotnet build ConsoleApp60.sln --configuration Release --verbosity normal
         
     - name: End SonarCloud analysis
