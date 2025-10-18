@@ -15,18 +15,23 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      
       - name: Set up msbuild
         uses: microsoft/setup-msbuild@v2
+      
       - name: Install Build Wrapper
-        uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v4
+        uses: SonarSource/sonqube-scan-action/install-build-wrapper@v6  # Обновлено до v6
+      
       - name: Run Build Wrapper
         run: |
-          build-wrapper-win-x86-64.exe --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} msbuild калькулятор/ConsoleApp60.sln /t:rebuild /nodeReuse:false
+          build-wrapper-win-x86-64.exe --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} msbuild "калькулятор/ConsoleApp60.sln" /t:rebuild /nodeReuse:false
+      
       - name: SonarQube Scan
-      - uses: SonarSource/sonarqube-scan-action@v6
+        uses: SonarSource/sonarqube-scan-action@v6  
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
+          projectBaseDir: .
           args: >
             -Dsonar.projectKey=e5e4baa032000c9463d39754d02e5af6d5f79f47
             -Dsonar.organization=xington231
