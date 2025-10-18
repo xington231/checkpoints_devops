@@ -54,7 +54,9 @@ namespace Calculator
             Console.WriteLine(calculator.Multiply(4, 2));
             Console.WriteLine(calculator.Divide(4, 2));
             Console.WriteLine(calculator.Subtract(4, 2));
-
+            Console.WriteLine(calculator.Divide(4, 0));
+            Console.WriteLine(calculator.Power(4, 0));
+            Console.WriteLine(calculator.Power(0, 3));
         }
     }
 }
