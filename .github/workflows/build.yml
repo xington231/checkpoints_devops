@@ -32,4 +32,3 @@ jobs:
             -Dsonar.organization=xington231
             -Dsonar.host.url=https://sonarcloud.io  
             -Dsonar.cfamily.compile-commands="${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json"
-	    -Dsonar.branch.name=${{ github.ref_name }}
