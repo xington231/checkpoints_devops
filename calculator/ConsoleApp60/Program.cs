@@ -6,28 +6,21 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    public class Calculator
+    public static class Calculator
     {
-        public decimal X { get; private set; }
-        public decimal Y { get; private set; }
-        public Calculator(decimal x,decimal y) 
+        public static decimal Add(decimal x, decimal y)
         {
-            this.X = x; 
-            this.Y = y; 
-        } 
-        public decimal Add(decimal x, decimal y)
-        {
-            return x + y;   
+            return x + y;
         }
-        public decimal Subtract(decimal x, decimal y)
+        public static decimal Subtract(decimal x, decimal y)
         {
             return x - y;
         }
-        public decimal Multiply(decimal x, decimal y)
+        public static decimal Multiply(decimal x, decimal y)
         {
             return x * y;
         }
-        public decimal Divide(decimal x, decimal y)
+        public static decimal Divide(decimal x, decimal y)
         {
             if (y == 0)
             {
@@ -35,10 +28,12 @@ namespace Calculator
             }
             return x / y;
         }
-        public decimal Power(decimal x, decimal y)
+        public static decimal Power(decimal x, decimal y)
         {
             if (y == 0) return 1;
             if (x == 0 && y > 0) return 0;
+            if (x == 0 && y < 0) throw new ArgumentException("0 в отрицательной степени не определено");
+
             return (decimal)Math.Pow((double)x, (double)y);
         }
 
@@ -48,15 +43,16 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
-            Calculator calculator = new Calculator(4,2);
-            Console.WriteLine(calculator.Power(4, 2));
-            Console.WriteLine(calculator.Add(4, 2) );
-            Console.WriteLine(calculator.Multiply(4, 2));
-            Console.WriteLine(calculator.Divide(4, 2));
-            Console.WriteLine(calculator.Subtract(4, 2));
-            Console.WriteLine(calculator.Divide(4, 0));
-            Console.WriteLine(calculator.Power(4, 0));
-            Console.WriteLine(calculator.Power(0, 3));
+            Console.WriteLine(Calculator.Power(4, 2));
+            Console.WriteLine(Calculator.Add(4, 2));
+            Console.WriteLine(Calculator.Multiply(4, 2));
+            Console.WriteLine(Calculator.Divide(4, 2));
+            Console.WriteLine(Calculator.Subtract(4, 2));
+            Console.WriteLine($"Divide(4, 0) = {Calculator.Divide(4, 0)}");
+            Console.WriteLine(Calculator.Power(4, 0));
+            Console.WriteLine(Calculator.Power(0, 3));
+            Console.WriteLine($"Power(0, -2) = {Calculator.Power(0, -2)}");
+
         }
     }
 }
