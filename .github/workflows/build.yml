@@ -1,37 +1,38 @@
-name: Build
+name: SonarCloud Analysis
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches: [ main ]
+
 jobs:
   build:
-    name: Build
+    name: Build and analyze
     runs-on: windows-latest
-    env:
-      BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory
+    
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      
-      - name: Set up msbuild
-        uses: microsoft/setup-msbuild@v2
-      
-      - name: Install Build Wrapper
-        uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v6
-      
-      - name: SonarQube Begin
-        run: |
-          dotnet tool install --global dotnet-sonarscanner
-          dotnet-sonarscanner begin /k:"xington231_checkpoints_devops" /o:"xington231" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-      
-      - name: Build Project
-        run: |
-          cd "калькулятор"
-          msbuild ConsoleApp60.sln /t:rebuild /nodeReuse:false
-      
-      - name: SonarQube End
-        run: |
-          dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0'  
+        
+    - name: Install SonarScanner for .NET
+      run: |
+        dotnet tool install --global dotnet-sonarscanner
+        
+    - name: Begin SonarCloud analysis
+      run: |
+        dotnet-sonarscanner begin /k:"xington231_checkpoints_devops" /o:"xington231" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+        
+    - name: Build project with MSBuild
+      run: |
+        cd "калькулятор"
+        msbuild ConsoleApp60.sln /p:Configuration=Release /p:Platform="Any CPU" /restore
+        
+    - name: End SonarCloud analysis
+      run: |
+        dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
