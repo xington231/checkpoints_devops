@@ -35,7 +35,7 @@ jobs:
         
     - name: Build project with dotnet
       working-directory: calculator 
-      run: dotnet build ConsoleApp60.sln --configuration Release --verbosity normal
+      run: dotnet build WebApplication1.sln --configuration Release --verbosity normal
         
     - name: End SonarCloud analysis
       working-directory: calculator 

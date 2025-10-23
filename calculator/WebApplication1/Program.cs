@@ -2,10 +2,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System;
 
+using CalculatorApp;
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/", () => "Используйте:\n" +
+app.MapGet("/", () => "Используйте:\n" + 
                      "/add/{x}/{y} - сложение\n" +
                      "/subtract/{x}/{y} - вычитание\n" +
                      "/multiply/{x}/{y} - умножение\n" +
@@ -40,7 +42,8 @@ app.MapGet("/divide/{x}/{y}", (decimal x, decimal y) =>
     }
     catch (DivideByZeroException ex)
     {
-        return Results.Text($"Ошибка: {ex.Message}", statusCode: 400);
+
+        return Results.Text($"Ошибка: {ex.Message}", statusCode: StatusCodes.Status400BadRequest);
     }
 });
 
@@ -53,29 +56,33 @@ app.MapGet("/power/{x}/{y}", (decimal x, decimal y) =>
     }
     catch (ArgumentException ex)
     {
-        return Results.Text($"Ошибка: {ex.Message}", statusCode: 400);
+
+        return Results.Text($"Ошибка: {ex.Message}", statusCode: StatusCodes.Status400BadRequest);
     }
 });
 
 app.Run();
 
-public static class Calculator
+namespace CalculatorApp 
 {
-    public static decimal Add(decimal x, decimal y) => x + y;
-    public static decimal Subtract(decimal x, decimal y) => x - y;
-    public static decimal Multiply(decimal x, decimal y) => x * y;
-
-    public static decimal Divide(decimal x, decimal y)
+    public static class Calculator
     {
-        if (y == 0) throw new DivideByZeroException("Деление на ноль невозможно!");
-        return x / y;
-    }
+        public static decimal Add(decimal x, decimal y) => x + y;
+        public static decimal Subtract(decimal x, decimal y) => x - y;
+        public static decimal Multiply(decimal x, decimal y) => x * y;
 
-    public static decimal Power(decimal x, decimal y)
-    {
-        if (y == 0) return 1;
-        if (x == 0 && y > 0) return 0;
-        if (x == 0 && y < 0) throw new ArgumentException("Ноль в отрицательной степени не определен!");
-        return (decimal)Math.Pow((double)x, (double)y);
+        public static decimal Divide(decimal x, decimal y)
+        {
+            if (y == 0) throw new DivideByZeroException("Деление на ноль невозможно!");
+            return x / y;
+        }
+
+        public static decimal Power(decimal x, decimal y)
+        {
+            if (y == 0) return 1;
+            if (x == 0 && y > 0) return 0;
+            if (x == 0 && y < 0) throw new ArgumentException("Ноль в отрицательной степени не определен!");
+            return (decimal)Math.Pow((double)x, (double)y);
+        }
     }
 }
