@@ -1,8 +1,0 @@
-E:\Study\devops\calculator\calculator\ConsoleApp60\bin\Debug\ConsoleApp60.exe.config
-E:\Study\devops\calculator\calculator\ConsoleApp60\bin\Debug\ConsoleApp60.exe
-E:\Study\devops\calculator\calculator\ConsoleApp60\bin\Debug\ConsoleApp60.pdb
-E:\Study\devops\calculator\calculator\ConsoleApp60\obj\Debug\ConsoleApp60.csproj.AssemblyReference.cache
-E:\Study\devops\calculator\calculator\ConsoleApp60\obj\Debug\ConsoleApp60.csproj.CoreCompileInputs.cache
-E:\Study\devops\calculator\calculator\ConsoleApp60\obj\Debug\ConsoleApp60.exe
-E:\Study\devops\calculator\calculator\ConsoleApp60\obj\Debug\ConsoleApp60.pdb
-E:\Study\devops\calculator\calculator\ConsoleApp60\obj\Debug\ConsoleApp60.exe.config
